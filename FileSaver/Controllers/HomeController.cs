@@ -40,5 +40,15 @@ namespace FileSaver.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [Route("storage/{name}")]
+        public IActionResult Storage(string name)
+        {
+            var filePath = $"{storagePath}\\{name}.txt";
+            if (!IsExists(filePath)) return Content("file not found");
+            return Content(System.IO.File.ReadAllText(filePath));
+        }
+        private bool IsExists(string path)
+            => System.IO.File.Exists(path);
     }
 }
