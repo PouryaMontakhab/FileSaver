@@ -51,5 +51,6 @@ namespace FileSaver.Controllers
         private bool IsExists(string path)
             => System.IO.File.Exists(path);
         //this line has been added in master branch
+        //this line has been added in hotfix branch
     }
 }
